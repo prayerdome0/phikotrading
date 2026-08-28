@@ -87,3 +87,24 @@ Every original file is a **marketing flyer, brand card, or raw project photo** f
 ## Final Cloudinary asset set (24 assets, root-level public IDs, no folders)
 Tags applied on upload: `phikotrading` + one of `brand, hero, tiling, bathroom, plumbing, building, paving, tar, renovations, about`.
 Full mapping with alt text: `scripts/cloudinary-manifest.tsv`.
+
+## Watermark incident — 2026-08-28
+
+A batch of generated images carried a fake centered "PT" monogram with
+"PHIKO TRADING" text stamped at identical coordinates (an artefact of the image
+generator, NOT real company branding). Detected by OCR in 7 images and removed:
+
+| Image | Status |
+|---|---|
+| `phikotrading-bathroom-tub-marble` | watermark removed |
+| `phikotrading-house-roof-construction` | watermark removed |
+| `phikotrading-paving-interlocking-grey` | watermark removed |
+| `phikotrading-staircase-grey` | watermark removed |
+| `phikotrading-tar-farm-road-silos` | watermark removed |
+| `phikotrading-tiling-darkwood-orange` | watermark removed |
+| `phikotrading-tiling-redclips-bathroom` | watermark removed |
+
+All other photos verified text-free. The only sanctioned branding on the site
+is the real logo asset `phikotrading-logo`. Rule going forward: no logos,
+monograms, watermarks or text overlays on any photo, ever (see README
+"Image guidelines").

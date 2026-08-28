@@ -12,6 +12,12 @@ window.PHIKO_CONFIG = {
   CLOUDINARY_UPLOAD_PRESET: 'phikotrading', // Signing mode: Unsigned
   CLOUDINARY_ASSET_FOLDER: '',              // "No folders" — root-level public IDs
 
+  // Serve images from Cloudinary instead of the local assets/img/ copies.
+  // KEEP THIS FALSE until the clean (watermark-free) assets have been
+  // re-uploaded with:  bash scripts/upload-cloudinary.sh
+  // (the old Cloudinary copies carry an unwanted "PT" logo watermark)
+  USE_CLOUDINARY: false,
+
   // Booking calendar — the owner will provide the calendar name separately.
   // Once provided, set it here and in .env (PUBLIC_CALENDAR_NAME).
   PUBLIC_CALENDAR_NAME: '',

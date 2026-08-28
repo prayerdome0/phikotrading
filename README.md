@@ -1,11 +1,45 @@
 # PHIKO TRADING — Website
 
 Marketing website for **Phiko Trading — Construction • Luxury Estate**
-(Tiling · Plumbing · Renovations · Building · Paving · TAR Surfacing — KZN, South Africa).
-
-Source imagery was extracted from `phikotrading images.zip`, individually inspected
+(Tiling · Plumbing · Renovations · Building · Paving · TAR Surfacing — KZN, South Africa).Source imagery was extracted from `phikotrading images.zip`, individually inspected
 (see `IMAGE-INVENTORY.md`), and recreated as clean, text-free, high-resolution
 photographs that preserve the original subjects (no stock photos).
+
+## Image guidelines (strict)
+
+1. **No logos, monograms, watermarks or text overlays** may ever be added to any
+   photo — not "PT", not "PHIKO TRADING", nothing. A batch generated earlier
+   carried a fake centered "PT" watermark; those images were cleaned and the
+   watermark must never return.
+2. The **only** permitted branding on the entire site is the real logo asset
+   `assets/img/phikotrading-logo.jpg` (Cloudinary `phikotrading-logo`), used in
+   the header and footer.
+3. When (re)generating or editing any photo, always include in the prompt:
+   *"no text, no letters, no logos, no watermarks, no branding anywhere"* —
+   and verify the result (OCR check) before publishing.
+4. Photos must look clean, professional and authentic: real job sites, natural
+   lighting, no placeholders, no unrelated objects.
+
+## Serving images (local-first)
+
+The site serves the committed, verified-clean copies in `assets/img/` directly.
+`USE_CLOUDINARY` in `js/config.js` is **false** by default; the old copies on
+Cloudinary still carry the "PT" watermark. After re-uploading the clean assets
+(below), you may flip it to `true` to serve from the CDN instead.
+
+## Refreshing Cloudinary with the clean images (one command)
+
+The manifest now points directly at the committed clean assets — no staging
+folder needed:
+
+```bash
+bash scripts/upload-cloudinary.sh          # uploads + verifies every URL is 200
+bash scripts/upload-cloudinary.sh --verify-only
+```
+
+Run it from your own machine (needs curl; no API secret required — unsigned
+preset). It overwrites each public ID with the clean version, so every
+Cloudinary URL the site could use becomes watermark-free.
 
 ## Cloudinary configuration
 

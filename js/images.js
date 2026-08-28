@@ -17,7 +17,7 @@
   'use strict';
 
   var REGISTRY = {
-    /* key                 public_id                                 local fallback                      alt */
+    /* key                 public_id                                 alt */
     'logo':                { id: 'phikotrading-logo',                  alt: 'Phiko Trading logo — Construction, Luxury Estate' },
     'hero-marble-floor':   { id: 'phikotrading-hero-marble-floor',     alt: 'Polished marble-look porcelain floor tiles installed by Phiko Trading in a newly renovated room' },
     'svc-tiling':          { id: 'phikotrading-svc-tiling',            alt: 'Professional tiler laying large-format grey porcelain floor tiles with a leveling clip system' },
@@ -74,10 +74,34 @@
     return asset ? asset.alt : '';
   }
 
+  /**
+   * Primary source for <img> tags.
+   *
+   * The site is LOCAL-FIRST by default: the committed, verified-clean copies in
+   * assets/img/ are served directly. Set USE_CLOUDINARY: true in js/config.js
+   * ONLY after re-uploading the clean assets with scripts/upload-cloudinary.sh
+   * (the previously uploaded Cloudinary copies contain an unwanted "PT"
+   * watermark and must not be displayed).
+   *
+   * @returns {string} local path (default) or Cloudinary URL
+   */
+  function resolveSrc(key, opts) {
+    var cfg = window.PHIKO_CONFIG || {};
+    return cfg.USE_CLOUDINARY ? cloudinaryUrl(key, opts) : localFallbackUrl(key);
+  }
+
+  /** The secondary source used as onerror fallback (the opposite of resolveSrc). */
+  function fallbackSrc(key, opts) {
+    var cfg = window.PHIKO_CONFIG || {};
+    return cfg.USE_CLOUDINARY ? localFallbackUrl(key) : cloudinaryUrl(key, opts);
+  }
+
   window.PHIKO_IMAGES = {
     registry: REGISTRY,
     url: cloudinaryUrl,
     fallback: localFallbackUrl,
+    resolve: resolveSrc,
+    fallbackAlt: fallbackSrc,
     alt: altText,
   };
 })();

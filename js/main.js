@@ -1,7 +1,9 @@
 /**
  * PHIKO TRADING — site behaviour.
- * - Resolves every <img data-img-key> to its CLOUDINARY delivery URL (primary),
- *   with an optimized local copy as onerror fallback.
+ * - Resolves every <img data-img-key> to its source: the LOCAL committed copy
+ *   in assets/img/ by default, with the Cloudinary delivery URL as onerror
+ *   fallback (flip USE_CLOUDINARY in js/config.js to reverse the order once
+ *   clean assets are re-uploaded to Cloudinary).
  * - Mobile nav, sticky header, gallery filters + lightbox, contact links,
  *   and the booking-calendar placeholder (activated by PUBLIC_CALENDAR_NAME).
  */
@@ -11,17 +13,17 @@
   var CFG = window.PHIKO_CONFIG || {};
   var IMG = window.PHIKO_IMAGES;
 
-  /* ── 1. Wire images: Cloudinary primary src + local fallback ─────────── */
+  /* ── 1. Wire images: local assets first, Cloudinary as fallback ─────── */
   function resolveImages() {
     if (!IMG) return;
     document.querySelectorAll('img[data-img-key]').forEach(function (el) {
       var key = el.getAttribute('data-img-key');
       var w = parseInt(el.getAttribute('data-w') || '1200', 10);
-      var primary = IMG.url(key, { w: w });
-      var backup = IMG.fallback(key);
+      var primary = IMG.resolve(key, { w: w });
+      var backup = IMG.fallbackAlt(key, { w: w });
 
       if (!el.getAttribute('alt')) el.setAttribute('alt', IMG.alt(key));
-      // Keep the full-res Cloudinary key for the lightbox
+      // Keep the asset id for the lightbox
       el.setAttribute('data-cld-id', (IMG.registry[key] || {}).id || '');
 
       el.addEventListener('error', function onErr() {
@@ -105,11 +107,13 @@
       fig.addEventListener('click', function () {
         var img = fig.querySelector('img');
         var key = img.getAttribute('data-img-key');
-        var id = img.getAttribute('data-cld-id');
         var caption = fig.querySelector('figcaption');
-        // Request a larger Cloudinary rendition for the viewer
-        lbImg.src = IMG.url(key, { w: 1600 });
-        lbImg.onerror = function () { lbImg.onerror = null; lbImg.src = img.src; };
+        // Local-first (or Cloudinary if enabled), with the other source as backup
+        lbImg.src = IMG.resolve(key, { w: 1600 });
+        lbImg.onerror = function () {
+          lbImg.onerror = null;
+          lbImg.src = IMG.fallbackAlt(key, { w: 1600 }) || img.src;
+        };
         lbImg.alt = img.alt;
         lbCap.textContent = caption ? caption.textContent : '';
         lb.classList.add('open');
