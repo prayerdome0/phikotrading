@@ -47,6 +47,26 @@ The owner will provide the **calendar name** separately. When received:
 2. Set `PUBLIC_CALENDAR_NAME` in `js/config.js`
 The placeholder is already wired into the Book section of the site.
 
+## Deployment — Vercel (static, zero-config)
+
+This repository is Vercel-ready (`vercel.json` included; no build step, framework = **Other**):
+
+1. Go to [vercel.com](https://vercel.com) → **Add New… → Project** → **Import** `prayerdome0/phikotrading`
+2. Framework preset: **Other** · Root directory: `./` · Build command: *(none)* · Output dir: *(none)*
+3. Deploy — done. Vercel auto-redeploys on every push to the connected branch.
+
+CLI alternative (from your own machine):
+
+```bash
+npm i -g vercel
+vercel login
+vercel deploy --prod
+```
+
+No environment variables are required for the public site. If you later add
+server-side tooling, set `CLOUDINARY_URL` in **Vercel → Project → Settings →
+Environment Variables** — never in frontend code.
+
 ## Run locally
 
 ```bash
