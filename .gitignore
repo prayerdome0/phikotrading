@@ -1,0 +1,16 @@
+# Secrets — NEVER commit these
+.env
+.env.*
+!.env.example
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+
+# Node (if used locally for tooling)
+node_modules/
+
+# Local upload staging is NOT committed twice in high-res form;
+# optimized web copies live in assets/img/
+upload-staging/
+.scratch/
