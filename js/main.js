@@ -65,6 +65,18 @@
     });
   }
 
+  /* ── 3b. Highlight the nav link for the current page ───────────────── */
+  function initActiveNav() {
+    var here = (window.location.pathname.split('/').pop() || 'index.html').replace(/\.html$/, '');
+    document.querySelectorAll('.main-nav a').forEach(function (a) {
+      var href = a.getAttribute('href') || '';
+      if (href.charAt(0) === '#' || href.indexOf('://') !== -1) return;
+      var target = (href.split('#')[0].split('/').pop() || 'index.html').replace(/\.html$/, '');
+      // Hash links to another page (e.g. contact.html#areas) stay neutral
+      if (target === here && href.indexOf('#') === -1) a.classList.add('active');
+    });
+  }
+
   /* ── 4. Gallery filters ──────────────────────────────────────────────── */
   function initGalleryFilters() {
     var buttons = document.querySelectorAll('.filter-btn');
@@ -87,6 +99,7 @@
     var lbImg = document.getElementById('lbImage');
     var lbCap = document.getElementById('lbCaption');
     var close = document.getElementById('lbClose');
+    if (!lb || !lbImg || !close) return; // pages without the viewer markup
 
     document.querySelectorAll('.g-item').forEach(function (fig) {
       fig.addEventListener('click', function () {
@@ -146,6 +159,7 @@
     resolveImages();
     resolveContactLinks();
     initHeader();
+    initActiveNav();
     initGalleryFilters();
     initLightbox();
     initCalendar();

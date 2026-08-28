@@ -56,7 +56,7 @@ Every original file is a **marketing flyer, brand card, or raw project photo** f
 | WA0040 | Flyer | Staircase tiling + wood-look floor with hat/scarf | REMAKE staircase → `phikotrading-staircase-grey` |
 | WA0041 | Flyer | Grey wood-look plank floor (dup of WA0034) | SKIP |
 | WA0042 | Flyer | Mirror-wall commercial space / luxe bathroom / salon | REMAKE → `phikotrading-svc-renovations` |
-| WA0043 | Flyer | Tiler in bathroom, tile cutter, director holding tile | Director portrait → `phikotrading-about-director` |
+| WA0043 | Flyer | Tiler in bathroom, tile cutter, director holding tile | Director portrait REMOVED from site (owner's request) — asset not used |
 | WA0044 | Flyer (green) | Stained timber staircase makeover | SKIP (wood stain job, covered by staircase) |
 | WA0045 | Flyer (green) | Rustic wood-look shower, matte-black column, niche | REMAKE → `phikotrading-svc-plumbing` |
 | WA0046 | Flyer | 4-panel services: staircase / tub bathroom / small bathroom / dark marble bathroom | Panels → `staircase-grey`, `bathroom-tub-marble`, `bathroom-mosaic-small`, `bathroom-vessel-dark` |
@@ -64,7 +64,7 @@ Every original file is a **marketing flyer, brand card, or raw project photo** f
 | WA0048 | Flyer | Wood-look floor tiling, yellow wedges, orange bucket | SKIP (covered by progress set) |
 | WA0049 | Flyer | Grey tiled staircase, white balustrade | REMAKE → `phikotrading-staircase-grey` |
 | WA0050 | Flyer | Services grid (staircase, bathrooms) | SKIP (panels covered) |
-| WA0051 | Flyer | Director holding tile + grey interlocking paving driveway | REMAKE → `phikotrading-about-director`, `phikotrading-paving-interlocking-grey` |
+| WA0051 | Flyer | Director holding tile + grey interlocking paving driveway | Director portrait REMOVED; paving → `phikotrading-paving-interlocking-grey` |
 | WA0052 | Flyer | TAR: farm road + silos, fresh roller pass, house driveway | REMAKE → `phikotrading-tar-farm-road-silos`, `phikotrading-svc-tar` |
 | WA0053 | Flyer | Wood-look planks, blue wedges | SKIP (covered by progress set) |
 | WA0054 | Flyer | Premium renovations triptych (same as WA0042) | SKIP (duplicate) |

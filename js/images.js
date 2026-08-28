@@ -41,7 +41,6 @@
     'paving-grey':         { id: 'phikotrading-paving-interlocking-grey', alt: 'New grey interlocking paver driveway with charcoal accent band and string-line alignment' },
     'tar-farm-silos':      { id: 'phikotrading-tar-farm-road-silos',   alt: 'Freshly tarred farm access road curving past grain silos in the KZN Midlands' },
     'house-roof':          { id: 'phikotrading-house-roof-construction', alt: 'Newly built house with terracotta roof tiles nearing completion by Phiko Trading' },
-    'about-director':      { id: 'phikotrading-about-director',        alt: 'Owner and Director of Phiko Trading on site holding a large-format porcelain tile' },
   };
 
   /**

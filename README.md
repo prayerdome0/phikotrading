@@ -78,13 +78,21 @@ python3 -m http.server 8000
 ## Structure
 
 ```
-index.html                 single-page website
+index.html                 home page (hero, services overview, featured work, process)
+about.html                 about the company (story, values) — no director portrait
+services.html              detailed service pages content (all six trades)
+gallery.html               our work — filterable project gallery + lightbox
+contact.html               contact, free-quote booking, calendar & service areas
 css/styles.css             navy + gold brand theme
 js/config.js               public, non-secret runtime config (cloud name, preset, calendar)
 js/images.js               Cloudinary URL builder + asset registry (public IDs)
-js/main.js                 interactions (nav, gallery lightbox, WhatsApp links)
+js/main.js                 interactions (nav + active page, gallery lightbox, WhatsApp links)
 assets/img/                optimized local fallback copies (git-committed, web-size)
 scripts/cloudinary-manifest.tsv   public_id → file → tags → alt (single source of truth)
 scripts/upload-cloudinary.sh      unsigned bulk uploader + URL verifier
 IMAGE-INVENTORY.md         what every image in the original ZIP was and where it went
 ```
+
+The site is multi-page: the header/nav links between the five pages, and the
+current page is highlighted automatically by `js/main.js`. The founder/director
+portrait was removed at the owner's request (no personal photos on the site).
