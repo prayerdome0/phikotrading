@@ -1,0 +1,125 @@
+export const categories = [
+  'Electronics',
+  'Phones',
+  'Clothes',
+  'Shoes',
+  'Furniture',
+  'Food',
+  'Agriculture',
+  'Hardware',
+  'Building materials',
+  'Beauty',
+  'Vehicles',
+  'Equipment',
+  'Professional services',
+  'Wholesale',
+];
+
+export const products = [
+  {
+    id: 'prd-001',
+    name: '20kg Tile Adhesive',
+    category: 'Building materials',
+    seller: 'ABC Hardware',
+    price: 145,
+    wholesalePrice: 118,
+    minQty: 25,
+    rating: 4.8,
+    location: 'Lusaka',
+    stock: 438,
+    badge: 'Wholesale',
+  },
+  {
+    id: 'prd-002',
+    name: 'Solar Flood Light 200W',
+    category: 'Electronics',
+    seller: 'GreenTech Supplies',
+    price: 520,
+    wholesalePrice: 460,
+    minQty: 10,
+    rating: 4.7,
+    location: 'Kitwe',
+    stock: 54,
+    badge: 'Verified',
+  },
+  {
+    id: 'prd-003',
+    name: 'Office Chair - Black Mesh',
+    category: 'Furniture',
+    seller: 'Urban Office Co.',
+    price: 650,
+    wholesalePrice: 500,
+    minQty: 20,
+    rating: 4.6,
+    location: 'Lusaka',
+    stock: 19,
+    badge: 'Deal',
+  },
+  {
+    id: 'prd-004',
+    name: 'Business Website Starter Package',
+    category: 'Professional services',
+    seller: 'Seedwel Partners',
+    price: 2500,
+    wholesalePrice: null,
+    minQty: null,
+    rating: 4.9,
+    location: 'Remote',
+    stock: null,
+    badge: 'Service',
+  },
+];
+
+export const businesses = [
+  {
+    name: 'ABC Hardware',
+    type: 'Hardware & building materials',
+    location: 'Lusaka, Zambia',
+    rating: 4.8,
+    badges: ['Verified', 'Trusted Seller', 'Premium Business'],
+    products: 1240,
+    open: true,
+  },
+  {
+    name: 'FreshFarm Wholesale',
+    type: 'Agriculture & food supply',
+    location: 'Chongwe, Zambia',
+    rating: 4.6,
+    badges: ['Verified', 'Wholesale'],
+    products: 310,
+    open: true,
+  },
+  {
+    name: 'Urban Office Co.',
+    type: 'Furniture & office supplies',
+    location: 'Lusaka, Zambia',
+    rating: 4.6,
+    badges: ['Established Business'],
+    products: 87,
+    open: false,
+  },
+];
+
+export const dashboardStats = [
+  { label: "Today's sales", value: 'K3,450', trend: '+18%', tone: 'green' },
+  { label: 'Receivable', value: 'K8,200', trend: '12 invoices', tone: 'amber' },
+  { label: 'Inventory value', value: 'K91,760', trend: '4 warehouses', tone: 'blue' },
+  { label: 'Low stock', value: '14', trend: 'needs attention', tone: 'red' },
+];
+
+export const documents = [
+  { type: 'Quotation', number: 'QT-00041', customer: 'ABC Company', amount: 'K10,000', status: 'Accepted' },
+  { type: 'Invoice', number: 'INV-00052', customer: 'Lusaka Builders', amount: 'K4,820', status: 'Partially paid' },
+  { type: 'Receipt', number: 'RCT-00033', customer: 'Mary Banda', amount: 'K1,500', status: 'Generated' },
+  { type: 'Purchase Order', number: 'PO-00012', customer: 'FreshFarm Wholesale', amount: 'K6,400', status: 'Sent' },
+];
+
+export const roadmap = [
+  ['Phase 1', 'Foundation', 'Authentication, profiles, businesses, stores, marketplace, products, search'],
+  ['Phase 2', 'Selling', 'Cart, orders, checkout, inventory, product variants'],
+  ['Phase 3', 'Business Management', 'Customers, quotations, invoices, receipts, payments, expenses'],
+  ['Phase 4', 'Advanced Business', 'Suppliers, purchase orders, warehouses, employees, permissions, reports'],
+  ['Phase 5', 'Automation', 'CSV sync, QR, barcode, payment links, notifications'],
+  ['Phase 6', 'AI', 'AI assistant, product creation, reports, marketing, controlled automation'],
+  ['Phase 7', 'Scale', 'Subscriptions, ads, API, integrations, multi-country, mobile apps'],
+];
